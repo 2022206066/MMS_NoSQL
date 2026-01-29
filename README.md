@@ -31,7 +31,7 @@ A barebone RTS sandbox demonstrating fundamental real-time strategy mechanics: m
 ### 2.2 Movement & Pathfinding
 - **Navigation:** Unity AI.Navigation with NavMesh-based pathfinding
 - **Agent Types:** SwiftAgent (infantry), HeavyAgent (tanks)
-- **Movement Command:** Right-click destination → units pathfind via NavMeshAgent
+- **Movement Command:** Right-click destination -> units pathfind via NavMeshAgent
 - **Stopping Distance:** Units halt at 4m from target destination
 - **Terrain:** Two terrain assets used for NavMesh generation (assets: `New Terrain.asset`, `New Terrain 1.asset`)
 
@@ -123,10 +123,10 @@ SelectableObject (Base)
 - **CameraControl.cs** - Camera state and input handling
 
 ### 3.3 Data Flow
-1. **Input:** Player clicks/drags → `BoxSelection` or `CameraControl`
-2. **Selection:** `SelectableObject.SetSelected()` → updates UI, visual indicators
-3. **Command:** Right-click → `Unit.SetDestination()` → NavMeshAgent pathfinding
-4. **Combat:** Units in range → `PerformAttack()` → `TakeDamage()` → health/death handling
+1. **Input:** Player clicks/drags -> `BoxSelection` or `CameraControl`
+2. **Selection:** `SelectableObject.SetSelected()` -> updates UI, visual indicators
+3. **Command:** Right-click -> `Unit.SetDestination()` -> NavMeshAgent pathfinding
+4. **Combat:** Units in range -> `PerformAttack()` -> `TakeDamage()` -> health/death handling
 5. **Persistence:** Save/Load via LiteDB for game state snapshots
 
 ### 3.4 Team Coordination
@@ -244,7 +244,7 @@ Assets/UI/
 |--------|-------|--------|
 | Select Unit | Left Click | Single unit selection |
 | Multi-Select | Drag Box | Multiple unit selection |
-| Move | Right Click | Destination marker → pathfind |
+| Move | Right Click | Destination marker -> pathfind |
 | Camera Pan | WASD / Arrow Keys | Free camera movement |
 | Camera Zoom | Mouse Wheel | Zoom in/out |
 | Deselect | Escape / Click Empty Space | Clear selection |
@@ -261,7 +261,7 @@ Assets/UI/
   - Idle: Standing animation
   - Moving: Run animation + NavMesh locomotion
   - Attacking: Firing animation + muzzle flash effect
-  - Dead: Death animation → unit destroyed after 3s
+  - Dead: Death animation -> unit destroyed after 3s
 - **Selection State:** Green outline/ring on selected units
 ---
 
@@ -274,8 +274,8 @@ Assets/UI/
 
 ### 8.2 Build Steps
 1. **Unity Editor:** Open project in Unity 2022.3.62f1
-2. **Verify NavMesh:** Window → AI → Navigation → Bake (if terrain modified)
-3. **Build:** File → Build Settings → Add Scene → Build
+2. **Verify NavMesh:** Window -> AI -> Navigation -> Bake (if terrain modified)
+3. **Build:** File -> Build Settings -> Add Scene -> Build
 
 ### 8.3 Development Workflow
 - **Scene Setup:** All gameplay in `SampleScene.unity`
@@ -364,7 +364,7 @@ Assets/Scripts/
 **Testing Combat:**
 1. Spawn 2-3 Red units, 2-3 Blue units in SampleScene
 2. Position near each other (within 10m)
-3. Verify: Attack animation → effects → damage numbers → death
+3. Verify: Attack animation -> effects -> damage numbers -> death
 4. Check minimap reflects unit positions/colors
 
 **Expanding Teams:**
@@ -390,3 +390,7 @@ Assets/Scripts/
 - **AI Behavior:** Implement IAgent interface for autonomous unit control
 - **Base Building:** Extend SelectableObject for static structures
 - **Economy:** Resource manager + production queues
+
+## License
+
+This project is licensed under the GNU GPL v3 License - see the LICENSE file for details.

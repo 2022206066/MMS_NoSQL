@@ -18,17 +18,17 @@ The persistence layer provides game state serialization and deserialization via 
 
 ```
 GameManager.QuickSave/Load (F5/F9)
-    ↓
+    v
 DatabaseManager (LiteDB wrapper)
-    ↓
+    v
 MapStateSaveData + UnitSaveData[]
-    ↓
+    v
 LiteDB Collection "saves"
 ```
 
-**Save Flow:** Iterate allUnits → extract to UnitSaveData[] → pack into MapStateSaveData → upsert to database
+**Save Flow:** Iterate allUnits -> extract to UnitSaveData[] -> pack into MapStateSaveData -> upsert to database
 
-**Load Flow:** Query slot → iterate UnitSaveData[] → match by unitId → restore transform/health/state → 0.5s stabilization delay
+**Load Flow:** Query slot -> iterate UnitSaveData[] -> match by unitId -> restore transform/health/state -> 0.5s stabilization delay
 
 ---
 
@@ -102,7 +102,7 @@ Per-unit serializable state.
 3. `LoadMapState()` executes:
    - Clear dead units from allUnits list
    - Iterate loaded UnitSaveData[], match by unitId to current units
-   - For each matched unit: disable NavMeshAgent → set transform position/rotation → call Warp() for physics sync → re-enable NavMeshAgent → restore health/state flags
+   - For each matched unit: disable NavMeshAgent -> set transform position/rotation -> call Warp() for physics sync -> re-enable NavMeshAgent -> restore health/state flags
    - Trigger `Unit.StabilizeAfterLoad()` coroutine (0.5s delay for collision settling)
 
 ### Performance Profile
